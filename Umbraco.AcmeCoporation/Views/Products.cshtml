@@ -1,0 +1,26 @@
+﻿
+@model Umbraco.AcmeCoporation.Models.ProductsModel
+@{
+	Layout = "Master.cshtml";
+}
+
+@foreach (Umbraco.AcmeCoporation.Domain.Product product in Model.Products)
+{
+    <div class="row">
+        <div class="col-6">
+            <h1>@product.Title</h1>
+        </div>
+        <div class="col-3">
+            @if (product.Image != null && !string.IsNullOrEmpty(product.Image.Url))
+            {
+               <img class="card-img-top" src="@product.Image.Url" alt="@product.Image.AltText">
+
+            }
+        </div>
+        <div class="col-3">
+            @product.SerialNumber
+        </div>
+   
+
+    </div>
+}
